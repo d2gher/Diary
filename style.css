@@ -1,4 +1,3 @@
-
 body {
 	margin: 0;
 	color: rgb(226, 226, 226);
@@ -39,6 +38,8 @@ header {
 }
 
 nav {
+	display: flex;
+	flex-direction: column;
 	position: fixed;
 	top: 69px;
 	padding: 10px;
@@ -94,6 +95,9 @@ article,
 	margin: 2rem;
 	padding: 2rem;
 }
+article[class=active] {
+	background-color: #3aadffbb;
+}
 #preview-images {
 	margin: 1rem;
 }
@@ -108,8 +112,10 @@ p {
 }
 a {
 	color: rgb(218, 218, 218);
+	display: block;
 }
-a:hover {
+a:hover,
+a[class="active"] {
 	background-color: rgb(57, 96, 129);
 }
 /* stylize the button that scrolls us up to the top of the page */
