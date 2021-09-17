@@ -1,0 +1,129 @@
+
+body {
+	margin: 0;
+	color: rgb(226, 226, 226);
+	background: linear-gradient(to left, rgb(41, 128, 185), rgb(22, 31, 41));
+	width: 100vw;
+	height: 100vh;
+	/* hide the scroll bar on the body because we use it on the posts section */
+	overflow: hidden;
+}
+/* adjust the header and its content */
+header {
+	background-color: rgba(36, 36, 36, 1);
+	font: 25px 'Gochi Hand', cursive;
+	padding: 5px;
+	color: rgb(140, 203, 255);
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	box-shadow: 5px 5px 30px black;
+	display: flex;
+	/* change the z index because we want the header on top of everything else */
+	z-index: 100;
+}
+#page-title {
+	margin: 0;
+	text-align: center;
+	position: relative;
+	right: -40vw;
+	display: inline;
+}
+#menu-icon {
+	margin-top: 0.4vw;
+	margin-left: 3vw;
+}
+#menu-icon:hover {
+	background-color: rgba(128, 128, 128, 0.219);
+	cursor: pointer;
+}
+
+nav {
+	position: fixed;
+	top: 69px;
+	padding: 10px;
+	text-align: left;
+	font: 25px 'Shrikhand', cursive;
+	text-decoration: underline;
+	border-left: 8px solid rgba(36, 36, 36, 0.705);
+	width: 19vw;
+	height: 90vh;
+	overflow-y: auto;
+	visibility: visible;
+	z-index: 2;
+}
+/* adjust the position of our main part of the page, i.e. the post field and posts */
+main {
+	width: 79%;
+	padding: 20px;
+	position: absolute;
+	height: 92.2vh;
+	left: 20vw;
+	top: 69px;
+	overflow-y: auto;
+	padding: 1vw;
+}
+input {
+	box-sizing: border-box;
+	background-color: rgb(138, 132, 190);
+	width: 100%;
+	padding: 1%;
+	display: block;
+	border-radius: 0.5rem;
+	border: none;
+	margin: 15px;
+	color: white;
+}
+input[type=button] {
+	background-color: rgba(44, 33, 144, 0.705);
+}
+input[type=button]:hover {
+	background-color: rgb(44, 33, 144);
+}
+::placeholder {
+	color: rgb(223, 223, 223);
+}
+:-ms-input-placeholder {
+	color: rgb(223, 223, 223);
+}
+
+article,
+#post-field {
+	background-color: #19476855;
+	border-radius: 1rem;
+	margin: 2rem;
+	padding: 2rem;
+}
+#preview-images {
+	margin: 1rem;
+}
+h2 {
+	font: 40px 'Shrikhand', cursive;
+	text-decoration: underline;
+	line-height: 10px;
+}
+p {
+	font: 35px 'Patrick Hand', cursive;
+	white-space: pre-wrap;
+}
+a {
+	color: rgb(218, 218, 218);
+}
+a:hover {
+	background-color: rgb(57, 96, 129);
+}
+/* stylize the button that scrolls us up to the top of the page */
+#to-top {
+	display: none;
+	position: fixed;
+	color: rgb(218, 218, 218);
+	top: 90vh;
+	left: 90vw;
+	background-color: rgba(255, 0, 0, 0.712);
+	width: 100px;
+	height: 60px;
+	border-radius: 0.5em;
+	font: 25px 'Patrick Hand', cursive;
+	z-index: 100;
+	cursor: pointer;
+}

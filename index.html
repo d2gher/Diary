@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <title>Layout</title>
+        <!-- get fonts from google -->
+        <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Patrick+Hand&family=Shrikhand&display=swap" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <image src="close_icon.png" alt="menus" id="menu-icon" width="44" height="44"></image>
+            <div style="clear: both" id="empty-div"></div>
+            <h1 id="page-title">Diary</h1>
+        </header>
+        <nav>
+            <ul id="links"></ul>
+        </nav>
+        <main>
+            <div id="post-field">
+                <form>
+                    <input id="post-title" type="text" placeholder="Title">
+                    <input id="post-date" type="date">
+                    <input id="post-text" type="text" placeholder="How was your day?">
+                    <input id="add-post"type="button" value="Add">
+                </form>
+            </div>
+            <section id="posts"></section>
+        </main>
+        <button id="to-top">To Top</button>
+    </body>
+</html>
