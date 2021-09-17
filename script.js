@@ -23,12 +23,11 @@ while (localStorage.getItem(storageKey) != null) {
     POSTS.insertBefore(post, POSTS.firstChild);
     // create  a list item with the post's header and link to it
     // then add it to the nav bar
-    let listItem = document.createElement("li");
     let link = document.createElement("a");
     link.textContent = stored.substring(stored.indexOf(">") + 1, stored.indexOf("</h2>"));
     link.href = `#postId=${storageKey}`;
-    listItem.appendChild(link);
-    LINKSLIST.insertBefore(listItem, LINKSLIST.firstChild);
+    link.id = `linkId=${storageKey}`
+    LINKSLIST.insertBefore(link, LINKSLIST.firstChild);
     // increment the storage key to go to the next item in the local storage
     storageKey++;
 }
@@ -64,6 +63,27 @@ MAIN.addEventListener("scroll", function() {
     else {
         TOPBUTTON.style.display = "none";
     }
+    let windowTop = $(this).scrollTop();
+
+    // highlight post in view and it's link in the nav bar
+    let posts = document.querySelectorAll("article");
+    // once we scroll we run this for every post
+
+    posts.forEach(function(element) {
+        // get the innerHTML of the post to extract post id from
+        let string = element.innerHTML;
+        let id = string.substring(string.indexOf("Id=") + 3, string.indexOf(">") - 1);
+        // if the element is in view, make its class active
+        if (element.getBoundingClientRect().top > 150 && element.getBoundingClientRect().bottom < 800) {
+            element.setAttribute("class", "active");
+            document.getElementById(`linkId=${id}`).setAttribute("class", "active");
+        } 
+        // otherwise, not active
+        else {
+            element.removeAttribute("class");
+            document.getElementById(`linkId=${id}`).removeAttribute("class");
+        };
+    });
 });
 
 // scroll up when the button is clicked
