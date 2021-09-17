@@ -4,12 +4,11 @@ const MENUICON = document.querySelector("#menu-icon");
 const MAIN = document.querySelector("main");
 const POSTS = document.querySelector("#posts");
 const ADDBUTTON = document.querySelector("#add-post");
-const POSTFIELD = document.querySelector("#post-field");
 const TITLEFIELD = document.querySelector("#post-title");
 const TEXTFIELD = document.querySelector("#post-text");
 const DATEFIELD = document.querySelector("#post-date");
 const LINKSLIST = document.querySelector("#links");
-const TOPBUTTON = document.querySelector("#to-top")
+const TOPBUTTON = document.querySelector("#to-top");
 
 // load old posts that are saved in the local storage from newest to oldest
 // then add links to them in the nav bar
@@ -26,7 +25,7 @@ while (localStorage.getItem(storageKey) != null) {
     let link = document.createElement("a");
     link.textContent = stored.substring(stored.indexOf(">") + 1, stored.indexOf("</h2>"));
     link.href = `#postId=${storageKey}`;
-    link.id = `linkId=${storageKey}`
+    link.id = `linkId=${storageKey}`;
     LINKSLIST.insertBefore(link, LINKSLIST.firstChild);
     // increment the storage key to go to the next item in the local storage
     storageKey++;
@@ -63,7 +62,7 @@ MAIN.addEventListener("scroll", function() {
     else {
         TOPBUTTON.style.display = "none";
     }
-    let windowTop = $(this).scrollTop();
+    
 
     // highlight post in view and it's link in the nav bar
     let posts = document.querySelectorAll("article");
@@ -82,7 +81,7 @@ MAIN.addEventListener("scroll", function() {
         else {
             element.removeAttribute("class");
             document.getElementById(`linkId=${id}`).removeAttribute("class");
-        };
+        }
     });
 });
 
@@ -94,7 +93,7 @@ TOPBUTTON.addEventListener("click", function() {
 // change the date in the post filed to be today's date
 if (DATEFIELD.value == "") {
     DATEFIELD.value = new Date().toISOString().split("T")[0];
-};
+}
 
 // add post 
 ADDBUTTON.addEventListener("click", function() {
@@ -121,8 +120,7 @@ ADDBUTTON.addEventListener("click", function() {
         // store the post in the local storage
         localStorage.setItem(storageKey, newPost.innerHTML);
         storageKey++;
-        //empty the feilds
-        TITLEFIELD.value = "";
-        TEXTFIELD.value = "";
+        //reload
+        location.reload();
     }
 });
